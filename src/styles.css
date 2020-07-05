@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+body{ 
+    background-color:#D0D6E2;
+}
+
+/* making footer stick to bottom of the page */
+* {
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    height: 100%;
+}
+.cust-wrapper {
+    position: relative;
+    min-height: 100%;
+}
+
+.mce-notification{
+    display: none !important;
+}

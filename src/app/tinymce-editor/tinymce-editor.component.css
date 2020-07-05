@@ -1,0 +1,7 @@
+/* .mce-notification, .mce-widget, .mce-notification-warning, .mce-has-close, .mce-in, .mce-notification-inner{
+    display: none !important;
+} */
+
+.mce-notification.mce-in{
+    display: none !important;
+}

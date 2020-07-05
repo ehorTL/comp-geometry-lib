@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <div class="d-flex align-items-center justify-content-center cust-logo-main-wrapper">
+          <img src="../assets/images/logo.png" class="cust-logo-main" alt="">
+        </div>
+      </a>
+    </nav>
+  
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto cust">
+        <li class="nav-item active">
+          <a class="nav-link cust-nav-text" routerLink="/home">{{pageMain}} <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link cust-nav-text" routerLink="/home">{{ourProjects}} <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link cust-nav-text dropdown-toggle" href="#" id="labSamsung" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{labSamsung}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="labSamsung">
+            <a class="dropdown-item" href="#">abbout</a>
+            <a class="dropdown-item" href="#">research fields</a>
+          </div>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link cust-nav-text" routerLink="/algorithms">{{pageAlgorithms}}</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link cust-nav-text dropdown-toggle" href="#" id="aboutMeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{aboutMe}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="aboutMeDropdown">
+            <a class="dropdown-item" href="#">{{myBiography}}</a>
+            <a class="dropdown-item" routerLink="aboutme/publications">{{myPublications}}</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link cust-nav-text" routerLink="/contacts">{{ourContacts}}</a>
+        </li>
+  
+        <li class="nav-item">
+          <select class="form-control lang-select">
+              <option selected>
+                <div class="lang-selectable">
+                  <span>{{langUa}}</span>
+                </div>
+                </option>
+              <option>
+                <div class="lang-selectable">
+                  <span>{{langEn}}</span>
+                </div>
+              </option>
+          </select>
+        </li>
+        
+      </ul>
+    </div>
+  
+    <!-- <form class="form-inline my-2 my-lg-0">
+        <div class="input-group-prepend cust-glass"></div>
+        <input class="form-control mr-sm-2 cust-search-field" type="search" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </nav>

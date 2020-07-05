@@ -1,0 +1,10 @@
+.comment-box{
+    background-color: #d1c4e9;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+
+    overflow-x: auto;
+}

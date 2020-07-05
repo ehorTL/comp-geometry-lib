@@ -1,0 +1,63 @@
+<div class="container-fluid cust-algo-menu-wrapper mb-0" id="cust-algo-menu-wrapper">
+    <button id="sidebarCollapse" type="button" class="btn btn-light rounded-pill shadow-sm px-4 mb-4
+    float-right" style="background-color: #F7F7F7;" (click)="onToggleButtonClicked()">
+        <i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Alg</small>
+    </button>
+</div>
+
+<div class="vertical-nav text-center" id="sidebar">
+    <input type="text" id="cust-serch-bar" class="m-2 p-1" style="background-color: #FAF3D2;"
+    placeholder="Почніть вводити назву">
+    <div class="wr-scrl">
+        <ul id="insertTo" class="nav flex-column mb-0 p-2 pb-0 text-left">
+            <li class="nav-item" *ngFor="let algo of foundAlgos;" (click)="onAlgorithmChosenClicked(algo.id)">
+                <a href="#" (click)="onAlgorithmTitleClicked($event)">{{algo.title}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Page content holder -->
+<div class="page-content" id="content">
+    <!-- Content place here-->
+    <div *ngIf="currentAlgorithm" class="p-3">
+        <div class="cust-algo-title mb-3">
+            {{currentAlgorithm.title}}
+        </div>
+        <div *ngFor="let s of currentAlgorithm.sections; index as ind">
+            <div *ngIf='s.text.trim() != ""'>
+                <div class="cust-section-title">{{s.sectionTitle.title}}</div>
+                <div [innerHTML]="s.text" class="container-fluid"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="margin-top: 100px;">
+        <h4 class="mt-2 mb-3 text-center">Коментарі ( {{this.commentsOfChosenAlgo.length}} )</h4>
+        <hr>
+        <app-comment [parentId]="-1" [dataList]="commentsOfChosenAlgo" 
+            (replyEvent)="onReplyButtonClicked($event);">
+        </app-comment>
+        <br><br>
+        <div class="cust-com-add-box mt-2">
+            <h4 class="mb-2">Залишити коментар</h4>
+            <h5 *ngIf="true" class="text-center mb-1 mt-1" style="color: #051B2D;">
+                Щоб залишити коментар, увійдіть в систему
+            </h5>
+            
+            <div class="reply-to-block mb-2" *ngIf="replyTo">
+                Reply to: 
+                <div class="reply-to-button">
+                     {{replyTo}}
+                    <img src="../../assets/images/close-btn.png" alt="" class="cust-close-btn" (click)="onCloseButtonClicked()">
+                </div>
+            </div>
+
+            <app-tinymce-editor [editorHeight]='100' (onCreateSignal)="saveEditorIdString($event)"></app-tinymce-editor>
+            <div class="text-right">
+                <button class="btn btn-primary mt-1" (click)="onSendCommentButtonClicked()">Надіслати</button>
+            </div>
+        </div>
+    </div>
+    
+</div>

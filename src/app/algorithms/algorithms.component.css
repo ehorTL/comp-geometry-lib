@@ -1,0 +1,138 @@
+/* cust styling  begin*/
+.wr-scrl{
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: blue grey;
+    height: inherit;
+  }
+
+  #sidebarCollapse{
+    display: none;
+  }
+/* cust styling  end*/
+
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: calc(100% - 142px);
+    position: fixed;
+    top: 142px;
+    right: 0;
+    /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1); */
+    transition: all 0.4s;
+  }
+  
+  .page-content {
+    width: calc(100% - 17rem);
+    margin-right: 17rem;
+    transition: all 0.4s;
+  }
+  
+  /* for toggle behavior */
+  #sidebar.active {
+    margin-right: -17rem;
+  }
+  
+  #content.active {
+    width: 100%;
+    margin: 0;
+  }
+  
+  @media (max-width: 720px) {
+    #sidebar {
+      margin-right: -17rem;
+    }
+    #sidebar.active {
+      margin-right: 0;
+    }
+    #content {
+      width: 100%;
+      margin: 0;
+    }
+    #content.active {
+      margin-right: 17rem;
+      width: calc(100% - 17rem);
+    }
+    
+    #sidebarCollapse{
+      display: flex;
+    }
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+
+#cust-algo-menu-wrapper{
+    background-color: #051B2D;
+    text-align: right;
+    min-height: 40px;
+}
+
+@media (min-width: 721px) {
+  #cust-algo-menu-wrapper{
+    display: none;
+  }
+  .vertical-nav{
+    height: calc(100% - 102px);
+    top: 102px;
+  }
+}
+
+.cust-section-title{
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.cust-algo-title{
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+}
+
+ #sidebar{
+  background-color: #F7F7F7;  
+}
+
+a { 
+  text-decoration: none;
+} 
+
+.cust-com-add-box{
+  background-color: #d1c4e9;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*
+  get rid of horizontal scroll
+*/
+html,
+body {
+  overflow-x: hidden;
+}
+
+.reply-to-block{
+  border-bottom: 1px solid #333 ;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+.reply-to-button{
+  border: 2px solid #333;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: inline-block;
+  opacity: 0.5;
+  height: 30px;
+}
+
+.cust-close-btn {
+  max-height: 100%;
+  width: auto;
+  cursor: pointer;
+}

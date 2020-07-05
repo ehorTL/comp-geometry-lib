@@ -1,0 +1,14 @@
+.cust-warninig-text{
+    color: red;
+    font-size: 20px;
+}
+
+.cust-algo-name{
+    color: black;
+    font-size: 30px;
+}
+
+.cust-confirm-button{
+    width: 400px;
+    min-width: 200px;
+}

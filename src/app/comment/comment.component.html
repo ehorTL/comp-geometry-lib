@@ -1,0 +1,21 @@
+<div *ngFor="let comment of dataList" class="ml-2">
+    <div *ngIf="comment.parentId == parentId">
+        <div class="comment-box">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10"></div>
+            </div>
+
+            <p>at: {{comment.created | date:'medium'}}</p>
+            <div class="cust-com-text" [innerHTML]="handleCommentHTMLReplaceImg(comment.text)"></div>
+            <div>
+                <br>
+                <div (click)="onReplyButtonClicked(comment)" style="cursor: pointer;">
+                    Reply
+                </div>
+            </div>
+        </div>
+        <app-comment [parentId]="comment.id" [dataList]="removeCurrentLevelItems(dataList, parentId)"
+        (replyEvent)="onReplyButtonClicked($event)"></app-comment>
+    </div>
+</div>

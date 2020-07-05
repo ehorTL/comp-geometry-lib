@@ -1,0 +1,15 @@
+.cust-cont-col{
+    max-height: 100%;
+    height: 100%;
+}
+
+.cust-map-wrapper{
+    min-height: 80vh;
+    height: 80vh;
+}
+
+.cust-addr-content{
+    font-weight: 300;
+    margin-left: 50px;
+    line-height: 2em;
+}

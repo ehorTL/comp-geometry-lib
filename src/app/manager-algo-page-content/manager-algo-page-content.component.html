@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="mb-4 mt-4">
+        <div class="row">
+            <div class="col-6 text-center">
+                <button type="button" class="btn btn-primary w-100" (click)="onEditButtonClicked()">Редагувати</button>
+            </div>
+            <div class="col-6 text-center">
+                <button type="button" class="btn btn-primary w-100" (click)="onCreateButtonClicked()">Створити новий</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="(actionToDo == actionEnum.edit)">
+    <div class="row">
+        <div class="col-10 offset-1">
+            <input type="text" list="allAlgos" class="form-control"  
+                placeholder="Введіть назву алгоритму" (change)="onTitleSelected($event)">
+            <datalist id="allAlgos">
+                <select>
+                    <option *ngFor="let algo of algorithms; index as ind" [value]="ind + '. ' + algo.title" class="form-control"></option>
+                </select>
+            </datalist>
+        </div>
+    </div>
+    <div class="col-10 offset-1" *ngIf="!(algorithms && algorithms.length)">
+        <h3 class="text-center cust-warninig-text">
+            Не знайдено жодного алгоритму
+        </h3>
+    </div>
+</div>
+
+<div class="conatiner-fluid mt-4" *ngIf="algorithm">
+    <h2 class="text-center cust-algo-name">{{algorithm?.title}}</h2>
+    <div class="row">
+        <div class="col-10 offset-1">
+            <input type="text" class="form-control" [(ngModel)]="algorithm.title" required>
+        </div>
+        <div class="col-10 offset-1" *ngIf="!algorithm.title">
+            <h3 class="text-center cust-warninig-text">
+                {{warningAlgoNameEmpty}}
+            </h3>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-4">
+    <div class="cust-section m-3" *ngFor="let sectionTitle of sectionTitles; index as ind;">
+        <h2 class="text-center" *ngIf="sectionTitle.title">{{sectionTitle.title}}</h2>
+        <div class="row">
+            <div class="offset-1 col-10">
+                <app-tinymce-editor [editorHeight]='500' (onCreateSignal)="bindToSection($event, ind)"></app-tinymce-editor>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container" *ngIf="(actionToDo != actionEnum.notgiven) && algorithm">
+    <p class="text-center">
+        <button type="button" class="btn btn-primary cust-confirm-button"
+        (click)="onConfirmButtonClicked();">Confirm</button>
+    </p>
+</div>
+
+<div class="container" *ngIf="(actionToDo == actionEnum.edit) && algorithm">
+    <p class="text-center">
+        <button type="button" class="btn btn-danger cust-confirm-button"
+        (click)="onDeleteButtonClicked();">Delete</button>
+    </p>
+</div>
